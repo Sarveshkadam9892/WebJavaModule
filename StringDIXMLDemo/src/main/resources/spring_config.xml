@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+       
+       <bean class="com.didemo.impl.MetalDoor" id="md"/>
+       
+       <bean class="com.didemo.impl.GlassDoor" id="gd"/>
+       
+       <bean class="com.didemo.impl.WoodenDoor" id="wd"/>
+       
+       <!-- constructor injection -->
+       <bean class="com.didemo.entity.Car" id="mCar">
+           <constructor-arg name="door" ref="md"></constructor-arg>
+       </bean>
+       
+        <bean class="com.didemo.entity.Car" id="gCar">
+           <constructor-arg name="door" ref="gd"></constructor-arg>
+       </bean>
+       
+       <!--  setter injection -->
+        <bean class="com.didemo.entity.Car" id="wCar">
+           <property name="door" ref="wd"></property>
+       </bean>
+  
+</beans>
